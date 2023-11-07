@@ -16,6 +16,7 @@ fig, ax = plt.subplots()
 sns.scatterplot(data=games, x="params", y="efficiency", ax=ax)
 ax.set_xlabel("Number of parameters")
 ax.set_ylabel("Efficiency")
+ax.set_xscale("log")
 plt.savefig(ROOT_PATH / "plots" / "param_size_vs_efficiency_scatterplot.png")
 
 # Plot training_steps vs efficiency (scatterplot)
