@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "cooperation-scaling"
+version = "0.1.0"
+description = ""
+authors = ["Agustín Covarrubias <agustin@agucova.dev>"]
+readme = "README.md"
+packages = [{include = "cooperation_scaling"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+transformers = "^4.35.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
