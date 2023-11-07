@@ -1,0 +1,15 @@
+model,params,checkpoint,training_steps,n_rounds
+EleutherAI/pythia-70M-deduped,70426624,step1,1,0
+EleutherAI/pythia-70M-deduped,70426624,step1000,1000,0
+EleutherAI/pythia-70M-deduped,70426624,step81000,81000,4
+EleutherAI/pythia-70M-deduped,70426624,step121000,121000,0
+EleutherAI/pythia-70M-deduped,70426624,step141000,141000,1
+EleutherAI/pythia-160M-deduped,162322944,step1,1,0
+EleutherAI/pythia-160M-deduped,162322944,step1000,1000,0
+EleutherAI/pythia-160M-deduped,162322944,step121000,121000,0
+EleutherAI/pythia-410M-deduped,405334016,step1,1,0
+EleutherAI/pythia-410M-deduped,405334016,step1000,1000,0
+EleutherAI/pythia-410M-deduped,405334016,step11000,11000,0
+EleutherAI/pythia-410M-deduped,405334016,step21000,21000,0
+EleutherAI/pythia-1B-deduped,1011781632,step1,1,0
+EleutherAI/pythia-1B-deduped,1011781632,step1000,1000,0

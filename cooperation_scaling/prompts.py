@@ -1,4 +1,5 @@
-from typing import Literal
+from inspect import cleandoc
+from typing import Literal, Optional
 import re
 
 
@@ -12,7 +13,8 @@ def initial_prompt(
     player_id = player - 1
     other_player_id = 1 - player_id
 
-    return f"""You are playing a game repeatedly with another
+    return cleandoc(f"""
+    You are playing a game repeatedly with another
     player. In this game, you can choose between {option_j} and {option_f}. 
     You will play {n_rounds} rounds in total with the same player.
     The rules of the game are as follows:
@@ -28,7 +30,7 @@ def initial_prompt(
     - If you choose {option_f} and the other player chooses
     {option_f}, then you win {payoff[1][1][player_id]} points and the other player
     wins {payoff[1][1][other_player_id]} points.
-    """
+    """)
 
 
 def move_to_text(move: Literal["J", "F"], option_j: str, option_f: str) -> str:
@@ -50,10 +52,11 @@ def round_prompt(
     player_id = player - 1
     other_player_id = 1 - player_id
 
-    return f"""In round {len(moves)}, you chose {move_to_text(moves[-1][player_id], option_j, option_f)}
+    return cleandoc(f"""
+        In round {len(moves)}, you chose {move_to_text(moves[-1][player_id], option_j, option_f)}
         and the other player chose {move_to_text(moves[-1][other_player_id], option_j, option_f)}.
         Thus, you won {payoff[moves[-1][player_id] == "J"][moves[-1][other_player_id] == "J"][player_id]} points and the other player won {payoff[moves[-1][player_id] == "J"][moves[-1][other_player_id] == "J"][other_player_id]} points.
-        """
+        """)
 
 
 def select_option_prompt(
@@ -61,9 +64,10 @@ def select_option_prompt(
     option_j: str,
     option_f: str,
 ):
-    return f"""You are currently plaing round {current_round}.
-            Q: Which Option do you choose, {option_j} or {option_f}?
-            A: """
+    return cleandoc(f"""
+            You are currently playing round {current_round}.
+            Q: Which option do you choose, '{option_j}' or '{option_f}'? (type either option, without any additional text)
+            A: """)
 
 def game_prompt(
     moves: list[tuple[Literal["J", "F"], Literal["J", "F"]]],
@@ -71,14 +75,19 @@ def game_prompt(
     option_j: str,
     option_f: str,
     payoff: list[list[tuple[int, int]]],
+    n_rounds: int,
 ):
     """
     Generate full game prompt for one player in this round.
     """
     if len(moves) == 0:
-        return initial_prompt(option_j, option_f, payoff, len(moves), player)
+        return initial_prompt(option_j, option_f, payoff, n_rounds, player) + "\n" + select_option_prompt(
+            len(moves) + 1,
+            option_j,
+            option_f,
+        )
     else:
-        header = initial_prompt(option_j, option_f, payoff, len(moves), player)
+        header = initial_prompt(option_j, option_f, payoff, n_rounds, player)
         previous_rounds = "\n".join(
             [
                 round_prompt(
@@ -96,15 +105,27 @@ def game_prompt(
             option_j,
             option_f,
         )
-        return header + previous_rounds + current_round
+        return cleandoc(header + "\n" + previous_rounds + "\n" + current_round)
     
-def answer_to_option(answer: str, option_j: str, option_f: str) -> Literal["J", "F"]:
+def completion_to_option(answer: str, option_j: str, option_f: str) -> Optional[Literal["J", "F"]]:
+    # Get text after "a:"
+    answer = answer.split("A:")[-1]
     # Strip, lowercase, and remove punctuation
     answer = answer.strip().lower().replace(".", "").replace(",", "")
     # Use regex to match the answer to the option
-    if re.match(rf"\b{option_j}\b", answer):
+    if re.match(rf"\b{option_j.lower()}\b", answer):
         return "J"
-    elif re.match(rf"\b{option_f}\b", answer):
+    elif re.match(rf"\b{option_f.lower()}\b", answer):
         return "F"
     else:
-        raise ValueError("answer must be either J or F")
+        print(f"Could not match: {answer}")
+        return None
+    
+def insist_on_answer_prompt(
+    option_j: str,
+    option_f: str,
+):
+    return cleandoc(f"""
+            Invalid answer. Please answer exactly either '{option_j}' or '{option_f}'.
+            Q: Which option do you choose, '{option_j}' or '{option_f}'?
+            A: """)
