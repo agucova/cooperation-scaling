@@ -46,8 +46,8 @@ TRAINING_STEP_NUMBERS = (
     # Initial steps
     # [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
     # Then every 1000 steps, from step1000 to step143000 (main)
-    # Fix for noisy version: only go from 11000 to 143000
-    range(11000, 143000, 12000)
+    # Subset selected:
+    range(11000, 143000, 2000)
 )
 TRAINING_STEPS = [(f"step{i}", i) for i in TRAINING_STEP_NUMBERS]
 NOISE_VALUES = [0.2]
@@ -70,7 +70,7 @@ GAME_FAMILIES = {
         [(1, 1), (3, 2)],  # FJ, FF
     ],
     "Second Best": [
-        [(1, 1), (4, 2)],  # JJ, JFhttps://app.todoist.com/app/label/2169826169
+        [(1, 1), (4, 2)],  # JJ, JF
         [(3, 3), (2, 4)],  # FJ, FF
     ],
 }
@@ -103,6 +103,8 @@ if __name__ == "__main__":
         (failed_game["model"], failed_game["checkpoint"])
         for failed_game in failed_games
     )
+    
+    n_rounds = 10
 
     # Run every combination of models and training steps
     for param_size, model in models_to_use:
@@ -114,11 +116,10 @@ if __name__ == "__main__":
                     print(f"Running {model} with {training_steps} training steps")
                     result = play_game(
                         (model, checkpoint),
-                        (model, checkpoint),
                         "Option J",
                         "Option F",
                         payoff_matrix,
-                        5,
+                        n_rounds,
                         noise=noise,
                     )
                     if not isinstance(result, int):
@@ -132,7 +133,7 @@ if __name__ == "__main__":
                                 "moves": result[0],
                                 "score_p1": result[1][0],
                                 "score_p2": result[1][1],
-                                "n_rounds": 5,
+                                "n_rounds": n_rounds,
                                 "noise": noise,
                                 "family": family_name,
                             }
@@ -147,7 +148,7 @@ if __name__ == "__main__":
                                 "params": param_size,
                                 "checkpoint": checkpoint,
                                 "training_steps": training_steps,
-                                "n_rounds": 5,
+                                "n_rounds": n_rounds,
                                 "noise": noise,
                                 "family": family_name,
                             }

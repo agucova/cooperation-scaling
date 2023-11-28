@@ -16,7 +16,7 @@ DATA_PATH = ROOT_PATH / "data"
 games = pd.read_csv(DATA_PATH / "games.csv")
 
 # Compute (score_p1 + score_p2) / (20 * n_rounds)
-games["efficiency"] = (games["score_p1"] + games["score_p2"]) / (8 * 5)
+games["efficiency"] = (games["score_p1"] + games["score_p2"]) / (8 * 10)
 
 # Plot params vs efficiency (scatterplot)
 fig, ax = plt.subplots()
@@ -35,7 +35,7 @@ plt.savefig(ROOT_PATH / "plots" / "training_steps_vs_efficiency_scatterplot.png"
 
 # Noisy versions
 noisy_games = pd.read_csv(DATA_PATH / "games_noisy.csv")
-noisy_games["efficiency"] = (noisy_games["score_p1"] + noisy_games["score_p2"]) / (8 * 5)
+noisy_games["efficiency"] = (noisy_games["score_p1"] + noisy_games["score_p2"]) / (8 * 10)
 
 # Per each `params`, find the rows with the highest `training_steps`
 i_max_steps = noisy_games.groupby("params")["training_steps"].idxmax()
@@ -110,8 +110,8 @@ ax = fig.add_subplot(projection='3d')
 # Draw points for each family
 for family_name, family_df in noisy_games.groupby("family"):
     ax.scatter(
-        family_df["params"],
         family_df["training_steps"],
+        family_df["params"],
         family_df["efficiency"],
         label=family_name,
     )
@@ -120,8 +120,8 @@ for family_name, family_df in noisy_games.groupby("family"):
 ax.ticklabel_format(style='sci', scilimits=(0,0), axis='x')
 ax.ticklabel_format(style='sci', scilimits=(0,0), axis='y')
 # Label each axis
-ax.set_xlabel("Params")
-ax.set_ylabel("Training steps")
+ax.set_ylabel("Params")
+ax.set_xlabel("Training steps")
 ax.set_zlabel("Efficiency (%)")
 ax.legend()
 plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_training_steps_vs_efficiency_3d_scatterplot3.png")
@@ -136,8 +136,8 @@ for i, (family_name, family_df) in enumerate(noisy_games.groupby("family")):
     
 
     ax.scatter(
-        family_df["params"],
         family_df["training_steps"],
+        family_df["params"],
         family_df["efficiency"],
         label=family_name,
         color=cmap(i),
@@ -147,8 +147,8 @@ for i, (family_name, family_df) in enumerate(noisy_games.groupby("family")):
     ax.ticklabel_format(style='sci', scilimits=(0,0), axis='x')
     ax.ticklabel_format(style='sci', scilimits=(0,0), axis='y')
     # Label each axis
-    ax.set_xlabel("Params")
-    ax.set_ylabel("Training steps")
+    ax.set_ylabel("Params")
+    ax.set_xlabel("Training steps")
     ax.set_zlabel("Efficiency (%)")
     ax.legend()
     plt.savefig(ROOT_PATH / "plots" / "noisy" / "families" / f"{family_name}_params_vs_training_steps_vs_efficiency_3d_scatterplot.png")

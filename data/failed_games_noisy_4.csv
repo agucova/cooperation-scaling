@@ -1,0 +1,113 @@
+model,params,checkpoint,training_steps,n_rounds,noise,family
+EleutherAI/pythia-70M-deduped,70426624,step95000,95000,5,0.2,Win-win
+EleutherAI/pythia-70M-deduped,70426624,step95000,95000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-70M-deduped,70426624,step95000,95000,5,0.2,Unfair
+EleutherAI/pythia-70M-deduped,70426624,step95000,95000,5,0.2,Biased
+EleutherAI/pythia-70M-deduped,70426624,step95000,95000,5,0.2,Second Best
+EleutherAI/pythia-70M-deduped,70426624,step107000,107000,5,0.2,Win-win
+EleutherAI/pythia-70M-deduped,70426624,step107000,107000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-70M-deduped,70426624,step107000,107000,5,0.2,Unfair
+EleutherAI/pythia-70M-deduped,70426624,step107000,107000,5,0.2,Biased
+EleutherAI/pythia-70M-deduped,70426624,step107000,107000,5,0.2,Second Best
+EleutherAI/pythia-70M-deduped,70426624,step119000,119000,5,0.2,Win-win
+EleutherAI/pythia-70M-deduped,70426624,step119000,119000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-70M-deduped,70426624,step119000,119000,5,0.2,Unfair
+EleutherAI/pythia-70M-deduped,70426624,step119000,119000,5,0.2,Biased
+EleutherAI/pythia-70M-deduped,70426624,step119000,119000,5,0.2,Second Best
+EleutherAI/pythia-70M-deduped,70426624,step131000,131000,5,0.2,Win-win
+EleutherAI/pythia-70M-deduped,70426624,step131000,131000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-70M-deduped,70426624,step131000,131000,5,0.2,Unfair
+EleutherAI/pythia-70M-deduped,70426624,step131000,131000,5,0.2,Biased
+EleutherAI/pythia-70M-deduped,70426624,step131000,131000,5,0.2,Second Best
+EleutherAI/pythia-160M-deduped,162322944,step119000,119000,5,0.2,Win-win
+EleutherAI/pythia-160M-deduped,162322944,step119000,119000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-160M-deduped,162322944,step119000,119000,5,0.2,Unfair
+EleutherAI/pythia-160M-deduped,162322944,step119000,119000,5,0.2,Biased
+EleutherAI/pythia-160M-deduped,162322944,step119000,119000,5,0.2,Second Best
+EleutherAI/pythia-410M-deduped,405334016,step11000,11000,5,0.2,Win-win
+EleutherAI/pythia-410M-deduped,405334016,step11000,11000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-410M-deduped,405334016,step11000,11000,5,0.2,Unfair
+EleutherAI/pythia-410M-deduped,405334016,step11000,11000,5,0.2,Biased
+EleutherAI/pythia-410M-deduped,405334016,step11000,11000,5,0.2,Second Best
+EleutherAI/pythia-410M-deduped,405334016,step23000,23000,5,0.2,Win-win
+EleutherAI/pythia-410M-deduped,405334016,step23000,23000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-410M-deduped,405334016,step23000,23000,5,0.2,Unfair
+EleutherAI/pythia-410M-deduped,405334016,step23000,23000,5,0.2,Biased
+EleutherAI/pythia-410M-deduped,405334016,step23000,23000,5,0.2,Second Best
+EleutherAI/pythia-1B-deduped,1011781632,step119000,119000,5,0.2,Win-win
+EleutherAI/pythia-1B-deduped,1011781632,step119000,119000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1B-deduped,1011781632,step119000,119000,5,0.2,Unfair
+EleutherAI/pythia-1B-deduped,1011781632,step119000,119000,5,0.2,Biased
+EleutherAI/pythia-1B-deduped,1011781632,step119000,119000,5,0.2,Second Best
+EleutherAI/pythia-2.8B-deduped,2775208960,step11000,11000,5,0.2,Win-win
+EleutherAI/pythia-2.8B-deduped,2775208960,step11000,11000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-2.8B-deduped,2775208960,step11000,11000,5,0.2,Unfair
+EleutherAI/pythia-2.8B-deduped,2775208960,step11000,11000,5,0.2,Biased
+EleutherAI/pythia-2.8B-deduped,2775208960,step11000,11000,5,0.2,Second Best
+EleutherAI/pythia-2.8B-deduped,2775208960,step71000,71000,5,0.2,Win-win
+EleutherAI/pythia-2.8B-deduped,2775208960,step71000,71000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-2.8B-deduped,2775208960,step71000,71000,5,0.2,Unfair
+EleutherAI/pythia-2.8B-deduped,2775208960,step71000,71000,5,0.2,Biased
+EleutherAI/pythia-2.8B-deduped,2775208960,step71000,71000,5,0.2,Second Best
+EleutherAI/pythia-2.8B-deduped,2775208960,step83000,83000,5,0.2,Win-win
+EleutherAI/pythia-2.8B-deduped,2775208960,step83000,83000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-2.8B-deduped,2775208960,step83000,83000,5,0.2,Unfair
+EleutherAI/pythia-2.8B-deduped,2775208960,step83000,83000,5,0.2,Biased
+EleutherAI/pythia-2.8B-deduped,2775208960,step83000,83000,5,0.2,Second Best
+EleutherAI/pythia-2.8B-deduped,2775208960,step95000,95000,5,0.2,Win-win
+EleutherAI/pythia-2.8B-deduped,2775208960,step95000,95000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-2.8B-deduped,2775208960,step95000,95000,5,0.2,Unfair
+EleutherAI/pythia-2.8B-deduped,2775208960,step95000,95000,5,0.2,Biased
+EleutherAI/pythia-2.8B-deduped,2775208960,step95000,95000,5,0.2,Second Best
+EleutherAI/pythia-2.8B-deduped,2775208960,step107000,107000,5,0.2,Win-win
+EleutherAI/pythia-2.8B-deduped,2775208960,step107000,107000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-2.8B-deduped,2775208960,step107000,107000,5,0.2,Unfair
+EleutherAI/pythia-2.8B-deduped,2775208960,step107000,107000,5,0.2,Biased
+EleutherAI/pythia-2.8B-deduped,2775208960,step107000,107000,5,0.2,Second Best
+EleutherAI/pythia-2.8B-deduped,2775208960,step119000,119000,5,0.2,Win-win
+EleutherAI/pythia-2.8B-deduped,2775208960,step119000,119000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-2.8B-deduped,2775208960,step119000,119000,5,0.2,Unfair
+EleutherAI/pythia-2.8B-deduped,2775208960,step119000,119000,5,0.2,Biased
+EleutherAI/pythia-2.8B-deduped,2775208960,step119000,119000,5,0.2,Second Best
+EleutherAI/pythia-2.8B-deduped,2775208960,step131000,131000,5,0.2,Win-win
+EleutherAI/pythia-2.8B-deduped,2775208960,step131000,131000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-2.8B-deduped,2775208960,step131000,131000,5,0.2,Unfair
+EleutherAI/pythia-2.8B-deduped,2775208960,step131000,131000,5,0.2,Biased
+EleutherAI/pythia-2.8B-deduped,2775208960,step131000,131000,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step59000,59000,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step59000,59000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-6.9B-deduped,6857302016,step59000,59000,5,0.2,Unfair
+EleutherAI/pythia-6.9B-deduped,6857302016,step59000,59000,5,0.2,Biased
+EleutherAI/pythia-6.9B-deduped,6857302016,step59000,59000,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step71000,71000,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step71000,71000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step71000,71000,5,0.2,Win-win
+EleutherAI/pythia-1.4B-deduped,1414647808,step71000,71000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step71000,71000,5,0.2,Unfair
+EleutherAI/pythia-1.4B-deduped,1414647808,step71000,71000,5,0.2,Biased
+EleutherAI/pythia-1.4B-deduped,1414647808,step71000,71000,5,0.2,Second Best
+EleutherAI/pythia-1.4B-deduped,1414647808,step83000,83000,5,0.2,Win-win
+EleutherAI/pythia-1.4B-deduped,1414647808,step83000,83000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step83000,83000,5,0.2,Unfair
+EleutherAI/pythia-1.4B-deduped,1414647808,step83000,83000,5,0.2,Biased
+EleutherAI/pythia-1.4B-deduped,1414647808,step83000,83000,5,0.2,Second Best
+EleutherAI/pythia-1.4B-deduped,1414647808,step95000,95000,5,0.2,Win-win
+EleutherAI/pythia-1.4B-deduped,1414647808,step95000,95000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step95000,95000,5,0.2,Unfair
+EleutherAI/pythia-1.4B-deduped,1414647808,step95000,95000,5,0.2,Biased
+EleutherAI/pythia-1.4B-deduped,1414647808,step95000,95000,5,0.2,Second Best
+EleutherAI/pythia-1.4B-deduped,1414647808,step107000,107000,5,0.2,Win-win
+EleutherAI/pythia-1.4B-deduped,1414647808,step107000,107000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step107000,107000,5,0.2,Unfair
+EleutherAI/pythia-1.4B-deduped,1414647808,step107000,107000,5,0.2,Biased
+EleutherAI/pythia-1.4B-deduped,1414647808,step107000,107000,5,0.2,Second Best
+EleutherAI/pythia-1.4B-deduped,1414647808,step119000,119000,5,0.2,Win-win
+EleutherAI/pythia-1.4B-deduped,1414647808,step119000,119000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step119000,119000,5,0.2,Unfair
+EleutherAI/pythia-1.4B-deduped,1414647808,step119000,119000,5,0.2,Biased
+EleutherAI/pythia-1.4B-deduped,1414647808,step119000,119000,5,0.2,Second Best
+EleutherAI/pythia-1.4B-deduped,1414647808,step131000,131000,5,0.2,Win-win
+EleutherAI/pythia-1.4B-deduped,1414647808,step131000,131000,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step131000,131000,5,0.2,Unfair
+EleutherAI/pythia-1.4B-deduped,1414647808,step131000,131000,5,0.2,Biased
+EleutherAI/pythia-1.4B-deduped,1414647808,step131000,131000,5,0.2,Second Best

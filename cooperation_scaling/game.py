@@ -23,7 +23,8 @@ def get_model_and_tokenizer(model_id: str, revision: str, cache_dir: Path = ROOT
         model_id,
         revision=revision,
         cache_dir=cache_dir,
-        device_map="balanced_low_0"
+        device_map="balanced_low_0",
+        low_cpu_mem_usage=True,
     )
     tokenizer = AutoTokenizer.from_pretrained(
         model_id, revision=revision, cache_dir=cache_dir, padding_side="left",
@@ -38,7 +39,7 @@ def get_model_and_tokenizer(model_id: str, revision: str, cache_dir: Path = ROOT
 
 def prompt_model(prompt: str, model, tokenizer) -> str:
     inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
-    tokens = model.generate(**inputs, max_new_tokens=5, pad_token_id=tokenizer.eos_token_id)  # type: ignore
+    tokens = model.generate(**inputs, max_new_tokens=20, pad_token_id=tokenizer.eos_token_id)  # type: ignore
     return tokenizer.decode(tokens[0])
 
 
@@ -78,8 +79,7 @@ def prompt_player(player: Player, prompt: str, option_j: str, option_f: str):
 
 
 def play_game(
-    model_1: tuple[str, str],
-    model_2: tuple[str, str],
+    model_id: tuple[str, str],
     option_j: str,
     option_f: str,
     payoff_matrix: list[list[tuple[int, int]]],
@@ -90,7 +90,7 @@ def play_game(
     assert len(payoff_matrix) == 2
     assert n_rounds > 0
     
-    with get_model_and_tokenizer(model_1[0], model_1[1]) as (model, tokenizer):
+    with get_model_and_tokenizer(model_id[0], model_id[1]) as (model, tokenizer):
         # Initialize players
         player_1 = Player(1, model, tokenizer)
         player_2 = Player(2, model, tokenizer)
