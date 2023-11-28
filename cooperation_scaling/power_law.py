@@ -2,14 +2,16 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
+from pathlib import Path
 
-# Load your dataset here
-df = pd.read_csv('../data/data_noisy.csv')
+ROOT_PATH = Path(__file__).parent.parent
+DATA_PATH = ROOT_PATH / "data"
 
-df['efficiency'] = (df['score_p1'] + df['score_p2']) / 40
+games_noisy = pd.read_csv(DATA_PATH / "games_noisy.csv")
+games_noisy['efficiency'] = (games_noisy['score_p1'] + games_noisy['score_p2']) / 40
 
-X = df[['params', 'training_steps']]
-y = df['efficiency']
+X = games_noisy[['params', 'training_steps']]
+y = games_noisy['efficiency']
 
 X_log = np.log(X)
 y_log = np.log(y)
