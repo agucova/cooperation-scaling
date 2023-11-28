@@ -13,6 +13,7 @@ pandas = "^2.1.2"
 rich = "^13.6.0"
 matplotlib = "^3.8.1"
 seaborn = "^0.13.0"
+accelerate = "^0.24.1"
 
 
 [tool.poetry.group.dev.dependencies]
