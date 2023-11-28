@@ -1,4 +1,3 @@
-from re import M
 from typing import TypedDict
 from game import play_game, OPTION
 import pandas as pd
@@ -48,10 +47,10 @@ TRAINING_STEP_NUMBERS = (
     # [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
     # Then every 1000 steps, from step1000 to step143000 (main)
     # Fix for noisy version: only go from 11000 to 143000
-    range(11000, 143000, 4000)
+    range(11000, 143000, 12000)
 )
 TRAINING_STEPS = [(f"step{i}", i) for i in TRAINING_STEP_NUMBERS]
-NOISE_VALUES = [0, 0.1, 0.3]
+NOISE_VALUES = [0, 0.25]
 HF_USER = "EleutherAI"
 GAME_FAMILIES = {
     "Win-win": [
@@ -133,7 +132,7 @@ if __name__ == "__main__":
                                 "moves": result[0],
                                 "score_p1": result[1][0],
                                 "score_p2": result[1][1],
-                                "n_rounds": 10,
+                                "n_rounds": 5,
                                 "noise": noise,
                                 "family": family_name,
                             }
@@ -148,7 +147,7 @@ if __name__ == "__main__":
                                 "params": param_size,
                                 "checkpoint": checkpoint,
                                 "training_steps": training_steps,
-                                "n_rounds": result,
+                                "n_rounds": 5,
                                 "noise": noise,
                                 "family": family_name,
                             }

@@ -114,6 +114,7 @@ def game_prompt(
         )
 
 
+
 def completion_to_option(
     answer: str, option_j: str, option_f: str
 ) -> Optional[Literal["J", "F"]]:
@@ -121,15 +122,15 @@ def completion_to_option(
     answer = answer.split("A:")[-1]
     # Strip, lowercase, and remove punctuation
     answer = answer.strip().lower().replace(".", "").replace(",", "")
-    # Use regex to match the answer to the option
-    if re.match(rf"\b{option_j.lower()}\b", answer):
+
+    if re.match(r"\boption\s+j\b", answer) or re.match(r"\bj\b", answer):
+        print(f"Matched {answer} to {option_j}")
         return "J"
-    elif re.match(rf"\b{option_f.lower()}\b", answer):
+    elif re.match(r"\boption\s+f\b", answer) or re.match(r"\bf\b", answer):
         return "F"
     else:
         print(f"Could not match: {answer}")
         return None
-
 
 def insist_on_answer_prompt(
     option_j: str,
