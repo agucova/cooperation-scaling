@@ -125,10 +125,10 @@ def completion_to_option(
     # Strip, lowercase, and remove punctuation
     response = response.strip().lower().replace(".", "").replace(",", "")
 
-    if re.match(r"\boption\s+j\b", response) or re.match(r"\bj\b", response):
+    if re.match(r"\boption\s+j\b", response) or re.match(r"\bj\b", response) or "option j" in response:
         print(f"Matched {response} to {option_j}")
         return "J"
-    elif re.match(r"\boption\s+f\b", response) or re.match(r"\bf\b", response):
+    elif re.match(r"\boption\s+f\b", response) or re.match(r"\bf\b", response) or "option f" in response:
         print(f"Matched {response} to {option_f}")
         return "F"
     else:

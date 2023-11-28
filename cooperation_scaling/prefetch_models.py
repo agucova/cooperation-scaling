@@ -1,8 +1,10 @@
 from pathlib import Path
+from torch import device
 from transformers import GPTNeoXForCausalLM, AutoTokenizer
 from multiprocessing.pool import ThreadPool
 from functools import partial
 from tqdm import tqdm
+import os
 
 ROOT_PATH = Path(__file__).parent.parent
 DATA_PATH = ROOT_PATH / "data"
@@ -29,15 +31,21 @@ models_to_use: list[str] = [
 
 
 def fetch_model_to_cache(model: tuple[str, str], cache_dir: Path):
+    print(f"Fetching {model}")
     model_id, revision = model
     cache_dir = ROOT_PATH / ".model_cache" / model_id / revision
-    if cache_dir.exists():
+    
+    if len(list(os.scandir(cache_dir))) > 1:
+        print(f"Skipping {model}, already exists")
         return None
     
     GPTNeoXForCausalLM.from_pretrained(
         model_id,
         revision=revision,
         cache_dir=cache_dir,
+        low_cpu_mem_usage=True,
+        resume_download=True,
+        device_map=None
     )
     AutoTokenizer.from_pretrained(
         model_id, revision=revision, cache_dir=cache_dir, padding_side="left"
@@ -48,6 +56,6 @@ def fetch_model_to_cache(model: tuple[str, str], cache_dir: Path):
 
 # Multithreaded fetch of all models
 
-with ThreadPool(8) as pool:
+with ThreadPool(1) as pool:
     models = [(model, revision) for model in models_to_use for revision in REVISIONS]
     list(tqdm(pool.imap_unordered(partial(fetch_model_to_cache, cache_dir=ROOT_PATH / ".model_cache"), models), total=len(models)))

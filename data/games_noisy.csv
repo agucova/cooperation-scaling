@@ -225,3 +225,39 @@ EleutherAI/pythia-6.9B-deduped,6857302016,step35000,35000,"[('J', 'J'), ('J', 'F
 EleutherAI/pythia-6.9B-deduped,6857302016,step35000,35000,"[('F', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'F')]",14,16,5,0.2,Unfair
 EleutherAI/pythia-6.9B-deduped,6857302016,step35000,35000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",20,20,5,0.2,Biased
 EleutherAI/pythia-6.9B-deduped,6857302016,step35000,35000,"[('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",7,7,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step23000,23000,"[('J', 'F'), ('J', 'F'), ('J', 'J'), ('J', 'F'), ('J', 'J')]",14,14,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step23000,23000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",20,20,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-6.9B-deduped,6857302016,step23000,23000,"[('J', 'J'), ('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J')]",17,17,5,0.2,Unfair
+EleutherAI/pythia-6.9B-deduped,6857302016,step47000,47000,"[('J', 'J'), ('J', 'J'), ('J', 'F'), ('J', 'J'), ('J', 'J')]",8,8,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step47000,47000,"[('J', 'J'), ('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J')]",17,19,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step47000,47000,"[('J', 'J'), ('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J')]",5,5,5,0.2,Win-win
+EleutherAI/pythia-1.4B-deduped,1414647808,step47000,47000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",20,20,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-1.4B-deduped,1414647808,step47000,47000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",20,20,5,0.2,Unfair
+EleutherAI/pythia-1.4B-deduped,1414647808,step47000,47000,"[('J', 'J'), ('J', 'F'), ('J', 'J'), ('J', 'F'), ('J', 'J')]",16,18,5,0.2,Biased
+EleutherAI/pythia-1.4B-deduped,1414647808,step47000,47000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'F'), ('J', 'J')]",8,6,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step83000,83000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('F', 'J'), ('J', 'J')]",5,5,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step83000,83000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",20,20,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-6.9B-deduped,6857302016,step83000,83000,"[('J', 'F'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",17,19,5,0.2,Unfair
+EleutherAI/pythia-6.9B-deduped,6857302016,step83000,83000,"[('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",17,17,5,0.2,Biased
+EleutherAI/pythia-6.9B-deduped,6857302016,step83000,83000,"[('J', 'J'), ('J', 'F'), ('J', 'F'), ('J', 'J'), ('J', 'J')]",11,7,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step95000,95000,"[('J', 'J'), ('J', 'J'), ('F', 'J'), ('J', 'F'), ('F', 'J')]",8,8,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step95000,95000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'F')]",19,17,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-6.9B-deduped,6857302016,step95000,95000,"[('J', 'F'), ('J', 'J'), ('J', 'J'), ('J', 'F'), ('J', 'J')]",14,18,5,0.2,Unfair
+EleutherAI/pythia-6.9B-deduped,6857302016,step95000,95000,"[('J', 'J'), ('J', 'F'), ('J', 'J'), ('J', 'J'), ('J', 'F')]",16,18,5,0.2,Biased
+EleutherAI/pythia-6.9B-deduped,6857302016,step95000,95000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",5,5,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step107000,107000,"[('J', 'J'), ('F', 'J'), ('F', 'J'), ('F', 'J'), ('J', 'J')]",5,5,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step107000,107000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'F'), ('J', 'J')]",19,17,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-6.9B-deduped,6857302016,step107000,107000,"[('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",17,17,5,0.2,Unfair
+EleutherAI/pythia-6.9B-deduped,6857302016,step107000,107000,"[('F', 'J'), ('F', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J')]",11,11,5,0.2,Biased
+EleutherAI/pythia-6.9B-deduped,6857302016,step107000,107000,"[('J', 'J'), ('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'F')]",10,8,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step119000,119000,"[('F', 'J'), ('J', 'F'), ('J', 'J'), ('F', 'J'), ('J', 'J')]",8,8,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step119000,119000,"[('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'F'), ('J', 'J')]",16,16,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-6.9B-deduped,6857302016,step119000,119000,"[('J', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'F'), ('J', 'J')]",14,16,5,0.2,Unfair
+EleutherAI/pythia-6.9B-deduped,6857302016,step119000,119000,"[('J', 'F'), ('J', 'J'), ('J', 'J'), ('J', 'F'), ('F', 'J')]",13,15,5,0.2,Biased
+EleutherAI/pythia-6.9B-deduped,6857302016,step119000,119000,"[('J', 'J'), ('J', 'J'), ('J', 'F'), ('F', 'J'), ('J', 'J')]",10,8,5,0.2,Second Best
+EleutherAI/pythia-6.9B-deduped,6857302016,step131000,131000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('F', 'J'), ('F', 'J')]",5,5,5,0.2,Win-win
+EleutherAI/pythia-6.9B-deduped,6857302016,step131000,131000,"[('J', 'J'), ('J', 'F'), ('F', 'J'), ('F', 'J'), ('J', 'J')]",13,15,5,0.2,Prisoner's Dilemma
+EleutherAI/pythia-6.9B-deduped,6857302016,step131000,131000,"[('F', 'J'), ('F', 'J'), ('J', 'F'), ('J', 'J'), ('J', 'F')]",8,12,5,0.2,Unfair
+EleutherAI/pythia-6.9B-deduped,6857302016,step131000,131000,"[('F', 'J'), ('F', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J')]",14,14,5,0.2,Biased
+EleutherAI/pythia-6.9B-deduped,6857302016,step131000,131000,"[('F', 'J'), ('J', 'J'), ('J', 'F'), ('J', 'J'), ('J', 'J')]",10,8,5,0.2,Second Best
+EleutherAI/pythia-12B-deduped,11846072320,step11000,11000,"[('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'J'), ('J', 'F')]",8,8,5,0.2,Win-win

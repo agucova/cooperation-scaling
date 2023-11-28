@@ -2,7 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
-import matplotlib.animation as animation
+
+
+from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.colors import ListedColormap
+
 
 
 ROOT_PATH = Path(__file__).parent.parent
@@ -77,18 +82,16 @@ noisy_games["defection_rate_p2"] = noisy_games["moves"].apply(lambda moves: sum(
 # Filter to prisoner's dilemma games
 prisoners_dilemma_games = noisy_games[noisy_games["family"] == "Prisoner's Dilemma"]
 
-# 3d scatterplot of `params`, `training_steps`, `defection_rate_p1`, hue=`noise`
+# 3d scatterplot of `params`, `training_steps`, `defection_rate_p1`
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 
-# Draw points for each noise value
-for noise_value, noise_df in prisoners_dilemma_games.groupby("noise"):
-    ax.scatter(
-        noise_df["params"],
-        noise_df["training_steps"],
-        noise_df["defection_rate_p1"],
-        label=f"{noise_value:.2f}",
-    )
+ax.scatter(
+    prisoners_dilemma_games["params"],
+    prisoners_dilemma_games["training_steps"],
+    prisoners_dilemma_games["defection_rate_p1"],
+    label="Player 1",
+)
 
 # Use scientific notation for the x and y ticks
 ax.ticklabel_format(style='sci', scilimits=(0,0), axis='x')
@@ -99,3 +102,53 @@ ax.set_ylabel("Training steps")
 ax.set_zlabel("Defection rate")
 ax.legend()
 plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_training_steps_vs_defection_rate_p1_3d_scatterplot2.png")
+
+# 3D scatterplot of `params`, `training_steps`, `efficiency`, hue=`family`
+fig = plt.figure(figsize=(6,6))
+ax = fig.add_subplot(projection='3d')
+
+# Draw points for each family
+for family_name, family_df in noisy_games.groupby("family"):
+    ax.scatter(
+        family_df["params"],
+        family_df["training_steps"],
+        family_df["efficiency"],
+        label=family_name,
+    )
+
+# Use scientific notation for the x and y ticks
+ax.ticklabel_format(style='sci', scilimits=(0,0), axis='x')
+ax.ticklabel_format(style='sci', scilimits=(0,0), axis='y')
+# Label each axis
+ax.set_xlabel("Params")
+ax.set_ylabel("Training steps")
+ax.set_zlabel("Efficiency (%)")
+ax.legend()
+plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_training_steps_vs_efficiency_3d_scatterplot3.png")
+
+# Get unique color for the points in this family
+cmap = ListedColormap(sns.color_palette("husl", n_colors=10).as_hex())
+
+# Generate one 3D scatter per family, with different colors for each
+for i, (family_name, family_df) in enumerate(noisy_games.groupby("family")):
+    fig = plt.figure(figsize=(6,6))
+    ax = fig.add_subplot(projection='3d')
+    
+
+    ax.scatter(
+        family_df["params"],
+        family_df["training_steps"],
+        family_df["efficiency"],
+        label=family_name,
+        color=cmap(i),
+    )
+
+    # Use scientific notation for the x and y ticks
+    ax.ticklabel_format(style='sci', scilimits=(0,0), axis='x')
+    ax.ticklabel_format(style='sci', scilimits=(0,0), axis='y')
+    # Label each axis
+    ax.set_xlabel("Params")
+    ax.set_ylabel("Training steps")
+    ax.set_zlabel("Efficiency (%)")
+    ax.legend()
+    plt.savefig(ROOT_PATH / "plots" / "noisy" / "families" / f"{family_name}_params_vs_training_steps_vs_efficiency_3d_scatterplot.png")
