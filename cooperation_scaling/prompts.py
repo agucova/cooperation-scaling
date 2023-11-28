@@ -65,7 +65,7 @@ def select_option_prompt(
     )
 
 
-NOISE_PROMPT = "Be aware that the other player can make mistakes."
+NOISE_PROMPT = "Be aware that the other player can make mistakes. "
 
 
 def game_prompt(
@@ -108,7 +108,7 @@ def game_prompt(
             option_f,
         )
         return cleandoc(
-            header + "\n" + (f"\n{NOISE_PROMPT}"
+            header + "\n" + (f"{NOISE_PROMPT}\n"
             if noise
             else "") + previous_rounds + "\n" + current_round
         )
@@ -118,25 +118,28 @@ def game_prompt(
 def completion_to_option(
     answer: str, option_j: str, option_f: str
 ) -> Optional[Literal["J", "F"]]:
-    # Get text after "a:"
-    answer = answer.split("A:")[-1]
+    print(f"Answer: {answer}")
+    # Get text after the last "A:" in the answer
+    response = answer.split("A:")[-1]
+    print(f"Response: {response}")
     # Strip, lowercase, and remove punctuation
-    answer = answer.strip().lower().replace(".", "").replace(",", "")
+    response = response.strip().lower().replace(".", "").replace(",", "")
 
-    if re.match(r"\boption\s+j\b", answer) or re.match(r"\bj\b", answer):
-        print(f"Matched {answer} to {option_j}")
+    if re.match(r"\boption\s+j\b", response) or re.match(r"\bj\b", response):
+        print(f"Matched {response} to {option_j}")
         return "J"
-    elif re.match(r"\boption\s+f\b", answer) or re.match(r"\bf\b", answer):
+    elif re.match(r"\boption\s+f\b", response) or re.match(r"\bf\b", response):
+        print(f"Matched {response} to {option_f}")
         return "F"
     else:
-        print(f"Could not match: {answer}")
+        print(f"Could not match: {response}")
         return None
 
 def insist_on_answer_prompt(
     option_j: str,
     option_f: str,
 ):
-    return cleandoc(
+    return cleandoc( 
         f"""
             Invalid answer. Please answer exactly either '{option_j}' or '{option_f}'.
             Q: Which option do you choose, '{option_j}' or '{option_f}'?

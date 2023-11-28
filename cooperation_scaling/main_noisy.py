@@ -50,7 +50,7 @@ TRAINING_STEP_NUMBERS = (
     range(11000, 143000, 12000)
 )
 TRAINING_STEPS = [(f"step{i}", i) for i in TRAINING_STEP_NUMBERS]
-NOISE_VALUES = [0, 0.25]
+NOISE_VALUES = [0.2]
 HF_USER = "EleutherAI"
 GAME_FAMILIES = {
     "Win-win": [
