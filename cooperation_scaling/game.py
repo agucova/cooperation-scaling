@@ -1,10 +1,14 @@
-import sys
-from typing import Optional, TypeAlias, Literal
+from typing import TypeAlias, Literal
 from transformers import GPTNeoXForCausalLM, AutoTokenizer
 from pathlib import Path
 from functools import cache
 from dataclasses import dataclass
-from prompts import game_prompt, completion_to_option, insist_on_answer_prompt
+from prompts import (
+    game_prompt,
+    completion_to_option,
+    insist_on_answer_prompt,
+)
+import random
 
 ROOT_PATH = Path(__file__).parent.parent
 
@@ -17,9 +21,7 @@ def get_model_and_tokenizer(model_id: str, revision: str, cache_dir: Path):
         cache_dir=cache_dir,
     )
     tokenizer = AutoTokenizer.from_pretrained(
-        model_id,
-        revision=revision,
-        cache_dir=cache_dir,
+        model_id, revision=revision, cache_dir=cache_dir, padding_side="left"
     )
 
     return model, tokenizer
@@ -75,7 +77,12 @@ def play_game(
     option_f: str,
     payoff_matrix: list[list[tuple[int, int]]],
     n_rounds: int,
+    noise: float = 0.0,
 ) -> tuple[list[tuple[OPTION, OPTION]], tuple[int, int]] | int:
+    assert 0 <= noise <= 1
+    assert len(payoff_matrix) == 2
+    assert n_rounds > 0
+    
     # Initialize players
     player_1 = Player(1, model_1[0], model_1[1])
     player_2 = Player(2, model_2[0], model_2[1])
@@ -86,10 +93,19 @@ def play_game(
     player_2_points = 0
 
     for round in range(n_rounds):
-        prompt_1 = game_prompt(moves, 1, option_j, option_f, payoff_matrix, n_rounds)
+        # Add noise to moves
+        prompt_1 = game_prompt(moves, 1, option_j, option_f, payoff_matrix, n_rounds, noise=(noise > 0.0))
+        
         move_1 = prompt_player(player_1, prompt_1, option_j, option_f)
-        prompt_2 = game_prompt(moves, 2, option_j, option_f, payoff_matrix, n_rounds)
+        # Add noise to move
+        if move_1 and random.random() < noise:
+            move_1 = "J" if move_1 == "F" else "F"
+
+        prompt_2 = game_prompt(moves, 2, option_j, option_f, payoff_matrix, n_rounds, noise=(noise > 0.0))
         move_2 = prompt_player(player_2, prompt_2, option_j, option_f)
+        # Add noise to move
+        if move_2 and random.random() < noise:
+            move_2 = "J" if move_1 == "F" else "F"
 
         # If either player is uncooperative, end the game
         if move_1 is None or move_2 is None:
