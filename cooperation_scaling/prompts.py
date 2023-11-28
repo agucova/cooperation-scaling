@@ -47,7 +47,7 @@ def round_prompt(
     return cleandoc(
         f"""
         In round {len(moves)}, you chose {move_to_text(moves[-1][player_id], option_j, option_f)} and the other player chose {move_to_text(moves[-1][other_player_id], option_j, option_f)}.
-        Thus, you won {payoff[moves[-1][player_id] == "J"][moves[-1][other_player_id] == "J"][player_id]} points and the other player won {payoff[moves[-1][player_id] == "J"][moves[-1][other_player_id] == "J"][other_player_id]} points.
+        Thus, you won {payoff[moves[-1][player_id] == "F"][moves[-1][other_player_id] == "F"][player_id]} points and the other player won {payoff[moves[-1][player_id] == "F"][moves[-1][other_player_id] == "F"][other_player_id]} points.
         """
     )
 

@@ -42,7 +42,7 @@ fig, ax = plt.subplots()
 sns.scatterplot(data=noisy_games, x="training_steps", y="efficiency", hue="family", ax=ax)
 ax.set_xlabel("Params")
 ax.set_ylabel("Efficiency")
-plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_efficiency_scatterplot.png")
+plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_efficiency_scatterplot2.png")
 
 
 # 3D scatterplot of `params`, `training_steps`, `efficiency`, hue=`family`
@@ -66,7 +66,7 @@ ax.set_xlabel("Params")
 ax.set_ylabel("Training steps")
 ax.set_zlabel("Efficiency (%)")
 ax.legend()
-plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_training_steps_vs_efficiency_3d_scatterplot.png")
+plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_training_steps_vs_efficiency_3d_scatterplot2.png")
 
 
 # Calculate defection rates based on the list of tuples in `moves`
@@ -98,4 +98,4 @@ ax.set_xlabel("Params")
 ax.set_ylabel("Training steps")
 ax.set_zlabel("Defection rate")
 ax.legend()
-plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_training_steps_vs_defection_rate_p1_3d_scatterplot.png")
+plt.savefig(ROOT_PATH / "plots" / "noisy" / "params_vs_training_steps_vs_defection_rate_p1_3d_scatterplot2.png")

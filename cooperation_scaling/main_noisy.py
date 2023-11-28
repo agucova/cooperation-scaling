@@ -70,7 +70,7 @@ GAME_FAMILIES = {
         [(1, 1), (3, 2)],  # FJ, FF
     ],
     "Second Best": [
-        [(1, 1), (4, 2)],  # JJ, JF
+        [(1, 1), (4, 2)],  # JJ, JFhttps://app.todoist.com/app/label/2169826169
         [(3, 3), (2, 4)],  # FJ, FF
     ],
 }
